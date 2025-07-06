@@ -2,17 +2,19 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.84.0"
+      version = "~>5.95.0"  # Adjust as needed for compatibility
+      
     }
   }
 
   backend "s3" {
-    bucket = "82s-tf-remote-state-dev"
-    key    = "expense-cicd" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
-    region = "us-east-1"
-    dynamodb_table = "82s-tf-remote-state-dev"
+    bucket         = "expense-infra-eks-dev-state-locking"
+    key            = "expense-cicd" # Unique key should be used with in the bucket, this will dump in our bucket only if others have same key and access.
+    region         = "us-east-1"
+    use_lockfile = true
   }
 }
+
 
 provider "aws" {
   # Configuration options

@@ -41,6 +41,22 @@ module "jenkins_agent" {
     }
 }
 
+# resource "aws_ebs_volume" "jenkins_agent_disk" {
+#   availability_zone = "us-east-1d"  # Match your instance's AZ
+#   size              = 5
+#   type              = "gp3"
+#   tags = {
+#     Name = "jenkins-agent-disk"
+#   }
+# }
+
+# resource "aws_volume_attachment" "jenkins_agent_attach" {
+#   device_name = "/dev/sdf"
+#   volume_id   = aws_ebs_volume.jenkins_agent_disk.id
+#   instance_id = module.jenkins_agent.id
+# }
+
+
 # module "records" {
 #   source  = "terraform-aws-modules/route53/aws//modules/records"
 #   version = "~> 2.0"

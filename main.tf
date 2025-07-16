@@ -57,31 +57,31 @@ module "jenkins_agent" {
 # }
 
 
-# module "records" {
-#   source  = "terraform-aws-modules/route53/aws//modules/records"
-#   version = "~> 2.0"
+module "records" {
+  source  = "terraform-aws-modules/route53/aws//modules/records"
+  version = "~> 2.0"
 
-#   zone_name = var.zone_name
+  zone_name = var.zone_name
 
-#   records = [
-#     {
-#       name    = "jenkins"
-#       type    = "A"
-#       ttl     = 1
-#       records = [
-#         module.jenkins.public_ip
-#       ]
-#       allow_overwrite = true
-#     },
-#     {
-#       name    = "jenkins-agent"
-#       type    = "A"
-#       ttl     = 1
-#       records = [
-#         module.jenkins_agent.private_ip
-#       ]
-#       allow_overwrite = true
-#     }
-#   ]
+  records = [
+    {
+      name    = "jenkins"
+      type    = "A"
+      ttl     = 1
+      records = [
+        module.jenkins.public_ip
+      ]
+      allow_overwrite = true
+    },
+    {
+      name    = "jenkins-agent"
+      type    = "A"
+      ttl     = 1
+      records = [
+        module.jenkins_agent.private_ip
+      ]
+      allow_overwrite = true
+    }
+  ]
 
-# }
+}

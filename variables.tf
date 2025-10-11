@@ -1,5 +1,5 @@
 variable "zone_name" {
   type        = string
-  default     = "pradeepdevops.online"
+  default     = "devopslife.store"
   description = "description"
 }

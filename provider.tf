@@ -8,8 +8,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "expense-infra-eks-dev-state-locking"
-    key            = "expense-cicd" # Unique key should be used with in the bucket, this will dump in our bucket only if others have same key and access.
+    bucket         = "roboshop-infra-eks-dev-state-locking"
+    key            = "roboshop-cicd" # Unique key should be used with in the bucket, this will dump in our bucket only if others have same key and access.
     region         = "us-east-1"
     use_lockfile = true
   }
